@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://borne-recharge-yvelines.fr/sitemap-index.xml
