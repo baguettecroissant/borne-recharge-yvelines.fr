@@ -98,12 +98,59 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             <strong>⚡ Réglementation en vigueur :</strong> {content.localRegulation}
           </blockquote>
 
-          <h2>2. Intégration architecturale et patrimoine local à {commune.nom}</h2>
+          <!-- Unique: Step-by-step Droit à la Prise timeline -->
+          <h2>2. Les 5 étapes clés pour installer votre borne en copropriété à {commune.nom}</h2>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin: 20px 0;">
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style="min-width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; flex-shrink: 0;">1</div>
+              <div>
+                <strong style="color: var(--primary);">Réaliser l'étude technique préalable</strong>
+                <p style="margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted);">Un électricien IRVE inspecte le parking, le TGBT et les chemins de câbles de votre résidence à {commune.nom}. Il établit un plan d'implantation et un devis détaillé.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style="min-width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; flex-shrink: 0;">2</div>
+              <div>
+                <strong style="color: var(--primary);">Notifier le syndic par lettre recommandée</strong>
+                <p style="margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted);">Envoyez votre demande de droit à la prise accompagnée du devis technique au syndic de votre copropriété à {commune.nom}. Le syndic a 3 mois pour réagir.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style="min-width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; flex-shrink: 0;">3</div>
+              <div>
+                <strong style="color: var(--primary);">Présentation en Assemblée Générale</strong>
+                <p style="margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted);">Le projet est inscrit à l'ordre du jour de la prochaine AG. Les copropriétaires de {commune.nom} votent le principe d'installation. En cas de silence du syndic, vous pouvez procéder.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style="min-width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; flex-shrink: 0;">4</div>
+              <div>
+                <strong style="color: var(--primary);">Travaux d'installation par un artisan IRVE</strong>
+                <p style="margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted);">L'électricien certifié réalise le raccordement, pose le sous-compteur MID et installe la borne sur votre emplacement de parking à {commune.nom}.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <div style="min-width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; flex-shrink: 0;">5</div>
+              <div>
+                <strong style="color: var(--primary);">Mise en service et dossier ADVENIR</strong>
+                <p style="margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted);">Votre borne est mise en service et l'attestation IRVE est délivrée. Le dossier de subvention ADVENIR (jusqu'à 960 €) est constitué pour obtenir votre remboursement.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>3. Contexte local et mobilité à {commune.nom}</h2>
+          <p>
+            {content.mobiliteContext}
+          </p>
+          <p>
+            {content.populationTierContent}
+          </p>
+
+          <h2>4. Intégration architecturale et patrimoine local à {commune.nom}</h2>
           <p>
             {content.anecdotePatrimoine}
           </p>
-
-          <h2>3. Prix et subventions de recharge en copropriété à {commune.nom} (2026)</h2>
+          <h2>5. Prix et subventions de recharge en copropriété à {commune.nom} (2026)</h2>
           <p>
             {content.tableIntro}
           </p>
@@ -144,9 +191,12 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             * Les aides calculées pour les copropriétaires de {commune.nom} incluent la prime ADVENIR individuelle (couvrant 50% du montant HT du projet, dans la limite de 960 € TTC) combinée au crédit d'impôt forfaitaire de 500 € pour l'installation d'une borne connectée.
           </p>
 
-          <h2>4. Diagnostics techniques &amp; spécificités de raccordement dans le 78</h2>
+          <h2>6. Diagnostics techniques &amp; spécificités de raccordement dans le 78</h2>
           <p>
             {content.communeDataInsight}
+          </p>
+          <p>
+            {content.specificiteElectrique}
           </p>
           <p>
             {content.logisticsAlert}
@@ -163,7 +213,7 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             <CityMap cityName={commune.nom} zip={commune.codePostal} />
           </div>
 
-          <h2>5. Plus-value immobilière de la recharge en résidence collective</h2>
+          <h2>7. Plus-value immobilière de la recharge en résidence collective</h2>
           <p>
             {content.marcheImmobilierInsight}
           </p>
@@ -171,9 +221,14 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             {content.realEstateInsight}
           </p>
 
+          <h2>8. Économies en copropriété : amortissement et charges</h2>
+          <p>
+            {content.ecoText}
+          </p>
+
           <!-- External Resources & Official Links -->
           <div style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
-            <h2>6. Liens institutionnels &amp; ressources de référence</h2>
+            <h2>9. Liens institutionnels &amp; ressources de référence</h2>
             <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">Accédez aux informations réglementaires et aides pour votre projet de borne de recharge en copropriété à {commune.nom} :</p>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               {content.externalLinks.map((link) => (
@@ -226,9 +281,19 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
           <div style="border-top: 1px solid var(--border-color); padding-top: 35px; margin-top: 45px;">
             <h3 style="margin-top: 0; color: var(--primary); font-size: 16px; margin-bottom: 15px;">📍 Installation en copropriété dans les communes voisines :</h3>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-              {nearby.map((n) => (
+              {nearby.slice(0, 5).map((n) => (
                 <a href={`/borne-recharge-copropriete-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
-                  🏢 Borne Copropriété - {n.nom} ({n.codePostal}) &rarr;
+                  🏢 Copropriété {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(5, 7).map((n) => (
+                <a href={`/installateur-borne-recharge-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  🔌 Installateur {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(7, 8).map((n) => (
+                <a href={`/wallbox-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  ⚡ Wallbox {n.nom} ({n.codePostal}) &rarr;
                 </a>
               ))}
             </div>

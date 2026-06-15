@@ -1,0 +1,22 @@
+{
+  "name": "Borne Recharge Yvelines",
+  "short_name": "Borne 78",
+  "description": "Installation de borne de recharge (Wallbox) dans les Yvelines (78). Devis gratuits.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0fdf4",
+  "theme_color": "#14532D",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

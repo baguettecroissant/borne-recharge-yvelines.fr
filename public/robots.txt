@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /confirmation/
+Disallow: /devis/
 
-Sitemap: https://borne-recharge-yvelines.fr/sitemap-index.xml
+Sitemap: https://www.borne-recharge-yvelines.fr/sitemap-index.xml

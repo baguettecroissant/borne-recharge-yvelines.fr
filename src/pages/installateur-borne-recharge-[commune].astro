@@ -94,16 +94,37 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             {content.localContext}
           </p>
 
+          <div style="background: linear-gradient(135deg, rgba(20, 83, 45, 0.05) 0%, rgba(5, 46, 22, 0.02) 100%); border: 1px solid var(--border-color); padding: 20px 25px; margin: 25px 0; border-radius: var(--radius-md);">
+            <h3 style="margin-top: 0; font-size: 15px; color: var(--primary);">🚗 Profil Mobilité à {commune.nom}</h3>
+            <p style="font-size: 14px; margin-bottom: 0; line-height: 1.6;">{content.mobiliteContext}</p>
+          </div>
+
           <blockquote style="border-left: 4px solid var(--accent); background: var(--primary-light); padding: 15px 20px; margin: 25px 0; border-radius: var(--radius-sm); color: var(--primary);">
             <strong>📍 Proximité Départementale :</strong> {content.distanceLyonContext}
           </blockquote>
+
+          <h2>2. Profil de mobilité et trajets pendulaires</h2>
+          <p>
+          <p>
+            {content.populationTierContent}
+          </p>
+
+          <div style="background: var(--bg); border: 1px solid var(--border-color); padding: 20px 25px; margin: 25px 0; border-radius: var(--radius-md);">
+            <h3 style="margin-top: 0; font-size: 15px; color: var(--primary);">⚡ Spécificité du réseau électrique</h3>
+            <p style="font-size: 14px; margin-bottom: 0; line-height: 1.6;">{content.specificiteElectrique}</p>
+          </div>
 
           <h2>2. Intégration architecturale et patrimoine local à {commune.nom}</h2>
           <p>
             {content.anecdotePatrimoine}
           </p>
 
-          <h2>3. Prix d'installation des bornes de recharge à {commune.nom} (2026)</h2>
+          <h2>3. Profil de mobilité et trajets pendulaires</h2>
+          <p>
+            {content.mobiliteContext}
+          </p>
+
+          <h2>4. Prix d'installation des bornes de recharge à {commune.nom} (2026)</h2>
           <p>
             {content.tableIntro}
           </p>
@@ -144,12 +165,12 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             * Les estimations de reste à charge pour {commune.nom} intègrent la réduction d'impôt forfaitaire de 500 € pour les résidents. Pour les copropriétaires raccordés, la prime ADVENIR individuelle vient déduire jusqu'à 960 € TTC complémentaires de la facture.
           </p>
 
-          <h2>4. Contraintes techniques &amp; audit électrique local</h2>
+          <h2>5. Économies et écologie au quotidien à {commune.nom}</h2>
           <p>
-            {content.communeDataInsight}
+            {content.ecoText}
           </p>
           <p>
-            {content.logisticsAlert}
+            {content.populationTierContent}
           </p>
 
           <!-- Localized Illustration Image -->
@@ -162,7 +183,7 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             <CityMap cityName={commune.nom} zip={commune.codePostal} />
           </div>
 
-          <h2>5. Impact du raccordement sur votre patrimoine immobilier</h2>
+          <h2>6. Impact du raccordement sur votre patrimoine immobilier</h2>
           <p>
             {content.marcheImmobilierInsight}
           </p>
@@ -172,7 +193,7 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
 
           <!-- External Resources & Official Links -->
           <div style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
-            <h2>6. Ressources officielles et liens utiles</h2>
+            <h2>7. Ressources officielles et liens utiles</h2>
             <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">Sources vérifiées et organismes de référence pour votre projet d'installation de borne de recharge à {commune.nom} :</p>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               {content.externalLinks.map((link) => (
@@ -225,9 +246,19 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
           <div style="border-top: 1px solid var(--border-color); padding-top: 35px; margin-top: 45px;">
             <h3 style="margin-top: 0; color: var(--primary); font-size: 16px; margin-bottom: 15px;">📍 Électriciens IRVE dans les communes voisines :</h3>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-              {nearby.map((n) => (
+              {nearby.slice(0, 5).map((n) => (
                 <a href={`/installateur-borne-recharge-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
-                  📍 Pose borne de recharge - {n.nom} ({n.codePostal}) &rarr;
+                  📍 Borne recharge {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(5, 7).map((n) => (
+                <a href={`/borne-recharge-copropriete-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  🏢 Copropriété {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(7, 8).map((n) => (
+                <a href={`/wallbox-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  ⚡ Wallbox {n.nom} ({n.codePostal}) &rarr;
                 </a>
               ))}
             </div>

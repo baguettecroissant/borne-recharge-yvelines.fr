@@ -98,12 +98,63 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             <strong>📍 Recommandation d'expert :</strong> {content.expertTip}
           </blockquote>
 
-          <h2>2. Intégration architecturale et patrimoine local à {commune.nom}</h2>
+          <!-- Unique to Wallbox: Brand comparison -->
+          <h2>2. Comparatif des marques de Wallbox installées à {commune.nom}</h2>
+          <div class="table-scroll-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Marque / Modèle</th>
+                  <th>Puissance</th>
+                  <th>Connectivité</th>
+                  <th>Points forts</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Keba KeContact P30</strong></td>
+                  <td>7.4 – 22 kW</td>
+                  <td>Wi-Fi, OCPP 1.6</td>
+                  <td>Fiabilité autrichienne, robustesse IP65, délestage intégré</td>
+                </tr>
+                <tr>
+                  <td><strong>ABB Terra AC</strong></td>
+                  <td>7.4 – 22 kW</td>
+                  <td>Bluetooth, Wi-Fi</td>
+                  <td>Design compact, application ABB, compatible tous VE</td>
+                </tr>
+                <tr>
+                  <td><strong>Schneider EVlink Home</strong></td>
+                  <td>7.4 – 22 kW</td>
+                  <td>Wi-Fi, App Wiser</td>
+                  <td>Intégration domotique Schneider, surveillance à distance</td>
+                </tr>
+                <tr>
+                  <td><strong>Easee Home</strong></td>
+                  <td>7.4 – 22 kW</td>
+                  <td>Wi-Fi, 4G, OCPP</td>
+                  <td>Design scandinave ultra-compact, charge dynamique intelligente</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45; margin-top: 10px;">
+            Toutes ces bornes sont certifiées et installées par nos électriciens IRVE partenaires à {commune.nom}. Le choix dépend de vos besoins spécifiques (puissance, connectivité, budget).
+          </p>
+
+          <h2>3. Contexte de mobilité à {commune.nom}</h2>
+          <p>
+            {content.mobiliteContext}
+          </p>
+          <p>
+            {content.populationTierContent}
+          </p>
+
+          <h2>4. Intégration architecturale et patrimoine local à {commune.nom}</h2>
           <p>
             {content.anecdotePatrimoine}
           </p>
-
-          <h2>3. Prix d'achat et pose de borne Wallbox à {commune.nom} (2026)</h2>
+          <h2>5. Prix d'achat et pose de borne Wallbox à {commune.nom} (2026)</h2>
           <p>
             {content.tableIntro}
           </p>
@@ -144,9 +195,12 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             * Ces tarifs incluent la fourniture de la borne connectée intelligente, les protections électriques obligatoires (différentiel type A-EV et disjoncteur) et la main-d'œuvre pour la pose par un artisan IRVE agréé à {commune.nom}.
           </p>
 
-          <h2>4. Précautions d'installation &amp; audit de conformité électrique</h2>
+          <h2>6. Précautions d'installation &amp; audit de conformité électrique</h2>
           <p>
             {content.communeDataInsight}
+          </p>
+          <p>
+            {content.specificiteElectrique}
           </p>
           <p>
             {content.logisticsAlert}
@@ -163,7 +217,7 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             <CityMap cityName={commune.nom} zip={commune.codePostal} />
           </div>
 
-          <h2>5. Impact d'une installation Wallbox sur le patrimoine à {commune.nom}</h2>
+          <h2>7. Impact d'une installation Wallbox sur le patrimoine à {commune.nom}</h2>
           <p>
             {content.marcheImmobilierInsight}
           </p>
@@ -171,9 +225,14 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
             {content.realEstateInsight}
           </p>
 
+          <h2>8. Économies et Smart Charging avec votre Wallbox</h2>
+          <p>
+            {content.ecoText}
+          </p>
+
           <!-- External Resources & Official Links -->
           <div style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
-            <h2>6. Liens institutionnels &amp; ressources de référence</h2>
+            <h2>9. Liens institutionnels &amp; ressources de référence</h2>
             <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">Liens officiels utiles pour encadrer l'acquisition et la pose de votre borne Wallbox à {commune.nom} :</p>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               {content.externalLinks.map((link) => (
@@ -226,9 +285,19 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
           <div style="border-top: 1px solid var(--border-color); padding-top: 35px; margin-top: 45px;">
             <h3 style="margin-top: 0; color: var(--primary); font-size: 16px; margin-bottom: 15px;">📍 Installation de bornes murales dans les communes voisines :</h3>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-              {nearby.map((n) => (
+              {nearby.slice(0, 5).map((n) => (
                 <a href={`/wallbox-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
-                  🔌 Bornes Wallbox - {n.nom} ({n.codePostal}) &rarr;
+                  ⚡ Wallbox {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(5, 7).map((n) => (
+                <a href={`/installateur-borne-recharge-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  🔌 Installateur {n.nom} ({n.codePostal}) &rarr;
+                </a>
+              ))}
+              {nearby.slice(7, 8).map((n) => (
+                <a href={`/borne-recharge-copropriete-${n.slug}/`} style="font-size: 13px; color: var(--secondary); font-weight: 600; background: var(--primary-light); padding: 8px 12px; border-radius: 4px; border: 1.5px solid var(--border-color); text-decoration: none;">
+                  🏢 Copropriété {n.nom} ({n.codePostal}) &rarr;
                 </a>
               ))}
             </div>
