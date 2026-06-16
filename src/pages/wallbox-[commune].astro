@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import SchemaMarkup from '../components/SchemaMarkup.astro';
 import CityMap from '../components/CityMap.astro';
-import StepsForm from '../components/StepsForm.astro';
 import config from '../data/config.json';
 import communes from '../data/communes.json';
 import { generateCommuneContent, getDynamicPrices } from '../lib/contentEngine';
@@ -72,7 +71,7 @@ const nearby = getSmartNearbyCommunes(commune.slug, communes, 6, 2);
         
         <!-- Interactive Multi-Step Form -->
         <div id="devis">
-          <StepsForm />
+          <div style="background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 35px 30px; text-align: center;"><h2 style="color: white; font-size: 22px; margin: 0 0 12px; font-family: var(--font-heading);">⚡ Devis Gratuit Wallbox</h2><p style="color: var(--primary-light); font-size: 14px; margin: 0 0 20px; line-height: 1.5;">3 devis gratuits de wallbox par des pros IRVE. Réponse sous 48h.</p><a href="/devis" style="display: inline-block; background: var(--accent); color: white; padding: 14px 35px; border-radius: 50px; font-weight: bold; font-size: 15px; text-decoration: none;">Obtenir mes devis gratuits →</a><p style="color: rgba(255,255,255,0.5); font-size: 11px; margin: 12px 0 0;">✅ 100% gratuit · Sans engagement · IRVE certifié</p></div>
         </div>
       </div>
     </div>
